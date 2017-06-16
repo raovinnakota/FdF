@@ -18,9 +18,9 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <fcntl.h>
-# define  BUFF_SIZE 4
-# define  FD_MAX 4864
+# define BUFF_SIZE 4
+# define FD_MAX 4864
 
-int       get_next_line(int fd, char **line);
+int		get_next_line(int fd, char **line);
 
 #endif
