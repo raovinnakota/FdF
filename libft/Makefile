@@ -75,6 +75,7 @@ SRC = ft_strcpy.c \
 	  ft_lstsize.c \
 	  ft_arrjoin.c \
 	  ft_strndup.c \
+	  get_next_line.c \
 
 .PHONY = all clean
 

@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rvinnako <rvinnako@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rvinnako <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/27 10:29:43 by rvinnako          #+#    #+#             */
-/*   Updated: 2017/06/14 12:19:15 by rvinnako         ###   ########.fr       */
+/*   Updated: 2017/03/10 18:25:51 by rvinnako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+# include "get_next_line.h"
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <stdio.h>
 # define CHK(a, b) do{if(a){return(b);}}while(0)
 # define CHK1(a, b, c) do{if(a){b; return(c);}}while(0)
 
@@ -48,8 +48,8 @@ char				*ft_strsub(const char *s, unsigned int start, size_t len);
 char				*ft_strjoin(const char *s1, const char *s2);
 char				*ft_strtrim(const char *s);
 char				*ft_itoa(int n);
-char				*ft_arrjoin(char **arr);
 char				*ft_strndup(const char *str, size_t size);
+char				*ft_arrjoin(char **arr);
 
 void				ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
@@ -94,4 +94,5 @@ int					ft_memcmp(const void *s1, const void *s2, size_t n);
 int					ft_strequ(const char *s1, const char *s2);
 int					ft_strnequ(const char *s1, const char *s2, size_t n);
 int					ft_lstsize(t_list *begin_list);
+int					get_next_line(const int fd, char **line);
 #endif
