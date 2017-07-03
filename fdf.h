@@ -6,7 +6,7 @@
 /*   By: rvinnako <rvinnako@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/28 17:18:31 by rvinnako          #+#    #+#             */
-/*   Updated: 2017/06/30 14:14:17 by rvinnako         ###   ########.fr       */
+/*   Updated: 2017/07/03 15:42:02 by rvinnako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include <math.h>
 # include "minilibx_macos/mlx.h"
 # include "libft/libft.h"
+# include <limits.h>
 
 typedef struct		s_line
 {
@@ -24,5 +25,10 @@ typedef struct		s_line
 	int				y_end;
 }					t_line;
 
+
+/*----parse.c----*/
+char	**fill_map(int fd);
+
+/*----set_map.c----*/
 
 #endif
