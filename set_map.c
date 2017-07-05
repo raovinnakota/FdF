@@ -6,7 +6,7 @@
 /*   By: rvinnako <rvinnako@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/03 16:00:11 by rvinnako          #+#    #+#             */
-/*   Updated: 2017/07/03 17:45:10 by rvinnako         ###   ########.fr       */
+/*   Updated: 2017/07/05 16:24:34 by rvinnako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char	**get_row(char *str)
 {
 	char **row;
 
-	row = ft_split(str, ' ');
+	row = ft_strsplit(str, 32);
 	return (row);
 }
 
@@ -35,25 +35,66 @@ void 	set_line(int **int_arr, char **row)
 	}
 }
 
-int		get_area(char **line)
+int		get_area(char **map)
 {
+	int i;
 	int height;
 	int width;
 
 	height = 0;
-	width = ft_strlen(line[height]);
-	while (line[height])
+	while (map[0][i])
+	{
+		if (ft_isdigit(map[0][i]))
+			width++;
+		i++;
+	}
+	while (map[height])
 		height++;
 	return (width * height);
 }
 
-int		**get_int_map(char **line)
+
+int		**get_int_map(char **map)
 {
 	int		i;
 	int		**ret;
 	char	**temp;
 
 	i = 0;
-	ret = (int**)malloc(sizeof(int*) * get_area(line));
-	temp = get_row(line[i]);
+	ret = (int**)malloc(sizeof(int*) * get_area(map));
+	while (temp = (get_row(map[i])))
+	{
+		set_line(&ret[i], temp);
+		i++;
+	}
+	return (ret);
+}
+
+
+int		main(int ac, char **av)
+{
+	int		i;
+	int 	j;
+	int		fd;
+	char	**map;
+	char	**line;
+	int		**arr;
+
+	if (ac != 2)
+		return (0);
+	i = 0;
+	fd = open(av[1], O_RDONLY);
+	map = fill_map(fd);
+	arr = get_int_map(map);
+	while (map[i][0])
+	{
+		j = 0;
+		while (map[i][j])
+		{
+			printf("%d", map[i][j]);
+			j++;
+		}
+		printf("\n");
+		i++;
+	}
 }
