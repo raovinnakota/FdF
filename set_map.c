@@ -6,7 +6,7 @@
 /*   By: rvinnako <rvinnako@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/03 16:00:11 by rvinnako          #+#    #+#             */
-/*   Updated: 2017/07/05 16:24:34 by rvinnako         ###   ########.fr       */
+/*   Updated: 2017/07/07 13:18:29 by rvinnako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	**get_row(char *str)
 	return (row);
 }
 
-void 	set_line(int **int_arr, char **row)
+void 	set_line(int *int_arr, char **row)
 {
 	int		c_count;
 	int		i_count;
@@ -29,7 +29,7 @@ void 	set_line(int **int_arr, char **row)
 	i_count = 0;
 	while (row[c_count])
 	{
-		*int_arr[i_count] = ft_atoi(row[c_count]);
+		int_arr[i_count] = ft_atoi(row[c_count]);
 		i_count++;
 		c_count++;
 	}
@@ -53,7 +53,7 @@ int		get_area(char **map)
 	return (width * height);
 }
 
-
+/*
 int		**get_int_map(char **map)
 {
 	int		i;
@@ -62,14 +62,15 @@ int		**get_int_map(char **map)
 
 	i = 0;
 	ret = (int**)malloc(sizeof(int*) * get_area(map));
-	while (temp = (get_row(map[i])))
+	while ((temp = get_row(map[i])))
 	{
-		set_line(&ret[i], temp);
+		set_line(ret[i], temp);
+		//printf("%d\n", ret[i][0]);
 		i++;
 	}
 	return (ret);
 }
-
+*/
 
 int		main(int ac, char **av)
 {
@@ -78,14 +79,22 @@ int		main(int ac, char **av)
 	int		fd;
 	char	**map;
 	char	**line;
-	int		**arr;
+	int		*arr;
 
 	if (ac != 2)
 		return (0);
 	i = 0;
 	fd = open(av[1], O_RDONLY);
 	map = fill_map(fd);
-	arr = get_int_map(map);
+	line = get_row(map[0]);
+	arr = (int*)malloc(sizeof(int) * 15);
+	set_line(arr, line);
+	while (i < 15)
+	{
+		printf("%d", arr[i]);
+		i++;
+	}
+	/*
 	while (map[i][0])
 	{
 		j = 0;
@@ -97,4 +106,5 @@ int		main(int ac, char **av)
 		printf("\n");
 		i++;
 	}
+	*/
 }

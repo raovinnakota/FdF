@@ -79,6 +79,7 @@ void				*ft_memalloc(size_t size);
 
 size_t				ft_strlcat(char *dst, const char *src, size_t size);
 
+int					ft_arrsize(char **arr);
 int					ft_strlen(char *str);
 int					ft_isalpha(int c);
 int					ft_isdigit(int c);
