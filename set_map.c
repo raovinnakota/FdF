@@ -6,7 +6,7 @@
 /*   By: rvinnako <rvinnako@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/03 16:00:11 by rvinnako          #+#    #+#             */
-/*   Updated: 2017/07/16 15:50:36 by rvinnako         ###   ########.fr       */
+/*   Updated: 2017/07/12 14:57:42 by rvinnako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,6 @@ char	**get_row(char *str)
 
 	row = ft_strsplit(str, 32);
 	return (row);
-}
-
-void 	set_line(int *int_arr, char **row)
-{
-	int		c_count;
-	int		i_count;
-
-	c_count = 0;
-	i_count = 0;
-	while (row[c_count])
-	{
-		int_arr[i_count] = ft_atoi(row[c_count]);
-		i_count++;
-		c_count++;
-	}
 }
 
 int		get_area(char **map)
@@ -53,7 +38,21 @@ int		get_area(char **map)
 	return (width * height);
 }
 
-/*
+void 	set_line(int *int_arr, char **row)
+{
+	int		c_count;
+	int		i_count;
+
+	c_count = 0;
+	i_count = 0;
+	while (row[c_count])
+	{
+		int_arr[i_count] = ft_atoi(row[c_count]);
+		i_count++;
+		c_count++;
+	}
+}
+
 int		**get_int_map(char **map)
 {
 	int		i;
@@ -64,47 +63,9 @@ int		**get_int_map(char **map)
 	ret = (int**)malloc(sizeof(int*) * get_area(map));
 	while ((temp = get_row(map[i])))
 	{
+		ret[i] = (int*)malloc(sizeof(int) * ft_arrsize(temp));
 		set_line(ret[i], temp);
-		//printf("%d\n", ret[i][0]);
 		i++;
 	}
 	return (ret);
-}
-*/
-
-int		main(int ac, char **av)
-{
-	int		i;
-	int 	j;
-	int		fd;
-	char	**map;
-	char	**line;
-	int		*arr;
-
-	if (ac != 2)
-		return (0);
-	i = 0;
-	fd = open(av[1], O_RDONLY);
-	map = fill_map(fd);
-	line = get_row(map[0]);
-	arr = (int*)malloc(sizeof(int) * 15);
-	set_line(arr, line);
-	while (i < 15)
-	{
-		printf("%d", arr[i]);
-		i++;
-	}
-	/*
-	while (map[i][0])
-	{
-		j = 0;
-		while (map[i][j])
-		{
-			printf("%d", map[i][j]);
-			j++;
-		}
-		printf("\n");
-		i++;
-	}
-	*/
 }
