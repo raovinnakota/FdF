@@ -6,7 +6,7 @@
 /*   By: rvinnako <rvinnako@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/20 12:22:15 by rvinnako          #+#    #+#             */
-/*   Updated: 2017/07/20 20:41:03 by rvinnako         ###   ########.fr       */
+/*   Updated: 2017/07/21 13:13:36 by rvinnako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,44 +47,58 @@ void	set_dimensions(t_map *map, char **arr)
 	map->map_area = (map->map_x * map->map_y);
 }
 
-/*
-int		**get_int_map(char **map)
+
+void	get_int_map(t_map *map, char **arr)
 {
 	int		i;
-	int		**ret;
 	char	**temp;
 
 	i = 0;
-	ret = (int**)malloc(sizeof(int*) * get_area(map));
-	while ((temp = get_row(map[i])))
+	map->map = (int**)malloc(sizeof(int*) * map->map_area);
+	while ((temp = get_row(arr[i])))
 	{
-		ret[i] = (int*)malloc(sizeof(int) * ft_arrsize(temp));
-		set_line(ret[i], temp);
+		map->map[i] = (int*)malloc(sizeof(int) * map->map_x);
+		set_line(map->map[i], temp);
 		i++;
 	}
+}
+
+
+t_map	get_map(char **arr)
+{
+	t_map ret;
+
+	set_dimensions(&ret, arr);
+	get_int_map(&ret, arr);
 	return (ret);
 }
 
 /*
-t_map	new_map(char **arr)
-{
-	t_map ret;
-
-	return (ret);
-}
-*/
-
 int		main(int ac, char **av)
 {
+	int a;
+	int b;
 	int fd;
 	t_map map;
 	char **arr;
 
 	if (ac != 2)
 		return (0);
+	a = 0;
 	fd = open(av[1], O_RDONLY);
 	arr = fill_map(fd);
-	set_dimensions(&map, arr);
-	printf("width:%d\nheight%d\narea:%d\n", map.map_x, map.map_y, map.map_area);
+	map  = get_map(arr);
+	while (a < map.map_y)
+	{
+		printf("\n");
+		b = 0;
+		while (b < map.map_x)
+		{
+			printf("%d ", map.map[a][b]);
+			b++;
+		}
+		a++;
+	}
 	return (0);
 }
+*/
