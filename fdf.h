@@ -6,7 +6,7 @@
 /*   By: rvinnako <rvinnako@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/28 17:18:31 by rvinnako          #+#    #+#             */
-/*   Updated: 2017/07/20 17:42:02 by rvinnako         ###   ########.fr       */
+/*   Updated: 2017/07/20 17:54:10 by rvinnako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ typedef struct		s_line
 
 typedef struct		s_map
 {
-	//int				**map;
+	int				**map;
 	int				map_x;
 	int				map_y;
 	int				map_area;
