@@ -6,7 +6,7 @@
 /*   By: rvinnako <rvinnako@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/28 17:18:31 by rvinnako          #+#    #+#             */
-/*   Updated: 2017/07/21 16:32:01 by rvinnako         ###   ########.fr       */
+/*   Updated: 2017/07/24 15:49:09 by rvinnako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,10 @@ typedef struct		s_map
 	int				map_x;
 	int				map_y;
 	int				map_area;
-	int				midx;
-	int				midy;
+	//int				midx;
+	//int				midy
+	int				hmin;
+	int				hmax;
 }					t_map;
 
 typedef struct		s_win
@@ -52,14 +54,15 @@ typdef struct		s_env
 	int				h_min;
 	int				h_max;
 }					t_env;
+*/
 
 tydef struct		s_point
 {
-	int				x;
-	int				y;
-	int				z;
+	float			x;
+	float			y;
+	float			z;
 }					t_point;
-*/
+
 
 /*----parse.c----*/
 char	**fill_map(int fd);
