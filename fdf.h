@@ -6,7 +6,7 @@
 /*   By: rvinnako <rvinnako@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/28 17:18:31 by rvinnako          #+#    #+#             */
-/*   Updated: 2017/07/24 15:49:09 by rvinnako         ###   ########.fr       */
+/*   Updated: 2017/07/26 18:49:04 by rvinnako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ typdef struct		s_env
 }					t_env;
 */
 
-tydef struct		s_point
+tydpef struct		s_point
 {
 	float			x;
 	float			y;
