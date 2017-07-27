@@ -6,12 +6,13 @@
 /*   By: rvinnako <rvinnako@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/28 17:18:31 by rvinnako          #+#    #+#             */
-/*   Updated: 2017/07/26 18:49:04 by rvinnako         ###   ########.fr       */
+/*   Updated: 2017/07/26 19:42:44 by rvinnako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
+# define POINT_SIZE = sizeof(float) * 3;
 # include <math.h>
 # include "minilibx_macos/mlx.h"
 # include "libft/libft.h"
@@ -43,18 +44,6 @@ typedef struct		s_win
 	int				win_y;
 	int				scale;
 }					t_win;
-
-/*
-typdef struct		s_env
-{
-	int				x1;
-	int				x2;
-	int				y1;
-	int				y2;
-	int				h_min;
-	int				h_max;
-}					t_env;
-*/
 
 tydpef struct		s_point
 {
