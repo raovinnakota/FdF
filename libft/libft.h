@@ -29,7 +29,7 @@ typedef struct		s_list
 t_list				*ft_lstnew(const void *content, const size_t size);
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 t_list				*ft_lstlast(t_list *begin_list);
-
+t_list				*ft_lstadd(t_list *begin_list, t_list *new);
 char				**ft_strsplit(const char *s, char c);
 
 char				*ft_strcpy(char *dest, char *src);
@@ -53,7 +53,6 @@ char				*ft_arrjoin(char **arr);
 
 void				ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
-void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 void				ft_putchar(char c);
 void				ft_putstr(const char *str);

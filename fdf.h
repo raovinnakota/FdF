@@ -6,7 +6,7 @@
 /*   By: rvinnako <rvinnako@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/28 17:18:31 by rvinnako          #+#    #+#             */
-/*   Updated: 2017/07/26 19:42:44 by rvinnako         ###   ########.fr       */
+/*   Updated: 2017/07/28 12:51:41 by rvinnako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ typedef struct		s_win
 	int				scale;
 }					t_win;
 
-tydpef struct		s_point
+typedef struct		s_point
 {
 	float			x;
 	float			y;

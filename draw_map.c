@@ -6,7 +6,7 @@
 /*   By: rvinnako <rvinnako@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/21 13:57:40 by rvinnako          #+#    #+#             */
-/*   Updated: 2017/07/24 15:49:07 by rvinnako         ###   ########.fr       */
+/*   Updated: 2017/07/28 12:37:20 by rvinnako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ int		draw_map(void *mlx_ptr, void *win_ptr, t_map *map, t_win *win)
 	return(0);
 }
 
+/*
 int		main(int ac, char **av)
 {
 	int		fd;
@@ -65,3 +66,4 @@ int		main(int ac, char **av)
 	draw_map(mlx, win, &map, &winn);
 	mlx_loop(mlx);
 }
+*/
