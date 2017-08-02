@@ -6,7 +6,7 @@
 /*   By: rvinnako <rvinnako@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/26 18:48:44 by rvinnako          #+#    #+#             */
-/*   Updated: 2017/07/28 16:47:24 by rvinnako         ###   ########.fr       */
+/*   Updated: 2017/08/01 19:09:52 by rvinnako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ t_point	*point_list(t_map *map)
 		x = 1;
 		while (x < map->map_x)
 		{
-			point = new_point((x + 1), (y + 1), (map->map[y][x] + 1));
+			point = new_point((x + 1), (y + 1), (map->map[y][x]));
 			p_list[z] = point;
 			x++;
 			z++;
