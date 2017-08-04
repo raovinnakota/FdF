@@ -6,7 +6,7 @@
 /*   By: rvinnako <rvinnako@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/26 12:40:35 by rvinnako          #+#    #+#             */
-/*   Updated: 2017/08/01 20:39:01 by rvinnako         ###   ########.fr       */
+/*   Updated: 2017/08/03 17:37:18 by rvinnako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,28 @@ void	rotate_graph(t_point **p_list, float angle, char axis, t_map *map)
 			rotate_z(p_list[z], angle);
 		z++;
 	}
+}
+
+int		main(int ac, char **av)
+{
+	int		fd;
+	int		z;
+	char	**arr;
+	t_map	map;
+	t_point	*p_list;
+
+	if (ac < 2)
+		return (0);
+	z = 0;
+	fd = open(av[1], O_RDONLY);
+	arr = fill_map(fd);
+	map = get_map(arr);
+	p_list = point_list(&map);
+	rotate_graph(&p_list, 2.094, 'x', &map);
+	while ((z + 1) < map.map_area)
+	{
+		printf("x:%f y:%f z:%f\n", p_list[z].x, p_list[z].y, p_list[z].z);
+		z++;
+	}
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: rvinnako <rvinnako@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/21 13:57:40 by rvinnako          #+#    #+#             */
-/*   Updated: 2017/08/01 20:39:24 by rvinnako         ###   ########.fr       */
+/*   Updated: 2017/08/03 16:48:33 by rvinnako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ t_win	get_win(t_map *map, int scale)
 	t_win	ret;
 
 	ret.scale = (float)scale;
-	ret.win_x = ((map->map_x * ret.scale) + (10 * ret.scale));
-	ret.win_y = ((map->map_y * ret.scale) + (10 * ret.scale));
+	ret.win_x = ((map->map_x * ret.scale) + (ret.scale));
+	ret.win_y = ((map->map_y * ret.scale) + (ret.scale));
 	return (ret);
 }
 
@@ -29,9 +29,9 @@ int		draw_map(void *mlx_ptr, void *win_ptr, t_win *win, t_map *map)
 
 	z = 0;
 	p_list = point_list(map);
-	rotate_graph(&p_list, 2.094, 'x', map);
-	rotate_graph(&p_list, 2.094, 'y', map);
-	rotate_graph(&p_list, 2.094, 'z', map);
+	//rotate_graph(&p_list, 2.094, 'x', map);
+	/*rotate_graph(&p_list, 2.094, 'y', map);
+	rotate_graph(&p_list, 2.094, 'z', map);*/
 	while (z + 1 < map->map_area)
 	{
 		if ((int)p_list[z].z == 10)
