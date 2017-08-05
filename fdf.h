@@ -6,7 +6,7 @@
 /*   By: rvinnako <rvinnako@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/28 17:18:31 by rvinnako          #+#    #+#             */
-/*   Updated: 2017/08/01 20:39:44 by rvinnako         ###   ########.fr       */
+/*   Updated: 2017/08/04 19:49:23 by rvinnako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,6 @@ t_map	get_map(char **arr);
 t_point	*point_list(t_map *map);
 
 /*----rotate.c----*/
-void	rotate_graph(t_point **p_list, float angle, char axis, t_map *map);
+void	rotate_graph(t_point *p_list, float angle, t_map *map, char axis);
 
 #endif
