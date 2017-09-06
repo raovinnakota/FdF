@@ -6,7 +6,7 @@
 /*   By: rvinnako <rvinnako@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/20 12:22:15 by rvinnako          #+#    #+#             */
-/*   Updated: 2017/07/21 16:51:52 by rvinnako         ###   ########.fr       */
+/*   Updated: 2017/09/06 14:32:18 by rvinnako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ void	set_dimensions(t_map *map, char **arr)
 	height = ft_arrsize(arr);
 	map->map_x = width;
 	map->map_y = height;
+	map->mid_x = width / 2;
+	map->map_y = height / 2;
 	map->map_area = (map->map_x * map->map_y);
 }
 
@@ -62,7 +64,6 @@ void	get_int_map(t_map *map, char **arr)
 		i++;
 	}
 }
-
 
 t_map	get_map(char **arr)
 {
