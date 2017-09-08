@@ -6,7 +6,7 @@
 /*   By: rvinnako <rvinnako@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/26 18:48:44 by rvinnako          #+#    #+#             */
-/*   Updated: 2017/09/06 16:31:21 by rvinnako         ###   ########.fr       */
+/*   Updated: 2017/09/08 16:12:01 by rvinnako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ t_point	*point_list(t_map *map)
 	return (p_list);
 }
 
-
+/*
 int		main(int ac, char **av)
 {
 	int		fd;
@@ -73,3 +73,4 @@ int		main(int ac, char **av)
 	}
 	return (0);
 }
+*/
