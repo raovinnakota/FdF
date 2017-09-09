@@ -6,7 +6,7 @@
 /*   By: rvinnako <rvinnako@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/26 18:48:44 by rvinnako          #+#    #+#             */
-/*   Updated: 2017/09/08 16:12:01 by rvinnako         ###   ########.fr       */
+/*   Updated: 2017/09/08 18:01:34 by rvinnako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ t_point	*point_list(t_map *map)
 
 	y = 0;
 	z = 0;
-	p_list = (t_point*)malloc(map->map_area * sizeof(float) * 3);
+	p_list = (t_point*)malloc(map->map_area * sizeof(float) * 5);
 	while (y < map->map_y)
 	{
 		x = 1;
