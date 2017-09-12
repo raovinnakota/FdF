@@ -6,7 +6,7 @@
 /*   By: rvinnako <rvinnako@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/28 17:18:31 by rvinnako          #+#    #+#             */
-/*   Updated: 2017/09/06 14:57:36 by rvinnako         ###   ########.fr       */
+/*   Updated: 2017/09/11 16:38:49 by rvinnako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ typedef struct		s_point
 }					t_point;
 
 
+
 /*----parse.c----*/
 char				**fill_map(int fd);
 
@@ -61,9 +62,13 @@ char				**fill_map(int fd);
 t_map				get_map(char **arr);
 
 /*----point.c-----*/
+t_point				new_point(int x, int y, int z);
 t_point				*point_list(t_map *map);
 
 /*----rotate.c----*/
 void				rotate_graph(t_point *p_list, float angle, t_map *map, char axis);
+
+/*----draw_line.c----*/
+void				draw_line(t_point *p1, t_point *p2, void *mlx_ptr, void *win_ptr);
 
 #endif

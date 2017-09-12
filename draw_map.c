@@ -6,7 +6,7 @@
 /*   By: rvinnako <rvinnako@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/21 13:57:40 by rvinnako          #+#    #+#             */
-/*   Updated: 2017/09/08 18:03:48 by rvinnako         ###   ########.fr       */
+/*   Updated: 2017/09/11 17:00:04 by rvinnako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,21 +29,26 @@ int		draw_map(void *mlx_ptr, void *win_ptr, t_win *win, t_map *map)
 
 	z = 0;
 	p_list = point_list(map);
-	rotate_graph(p_list, 0.100, map, 'x');
-	rotate_graph(p_list, 0.500, map, 'z');
+	rotate_graph(p_list, 3.142, map, 'x');
+	rotate_graph(p_list, 0.050, map, 'y');
+	rotate_graph(p_list, 0.050, map, 'z');
 	while (z + 1 < map->map_area)
 	{
 		p_list[z].win_x = (p_list[z].x * win->scale * (-1)) + (win->win_x / 2);
 		p_list[z].win_y = (p_list[z].y * win->scale * (-1)) + (win->win_y / 2);
-		if ((int)p_list[z].z != 0)
-			mlx_pixel_put(mlx_ptr, win_ptr, p_list[z].win_x, p_list[z].win_y, 0xFFFFFF);
-		else
-			mlx_pixel_put(mlx_ptr, win_ptr, p_list[z].win_x, p_list[z].win_y, 0xFF00FF);
+		mlx_pixel_put(mlx_ptr, win_ptr, p_list[z].win_x, p_list[z].win_y, 0xFF00FF);
+		z++;
+	}
+	z = 1;
+	while (z + 1 < map->map_area)
+	{
+		printf("%d:%d:%d\n", z, z+1, z+(map->map_x));
+		draw_line(&p_list[z], &p_list[z + 1], mlx_ptr, win_ptr);
+		draw_line(&p_list[z], &p_list[z + (map->map_x)], mlx_ptr, win_ptr);
 		z++;
 	}
 	return(0);
 }
-
 
 int		main(int ac, char **av)
 {
