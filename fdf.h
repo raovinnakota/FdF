@@ -6,7 +6,7 @@
 /*   By: rvinnako <rvinnako@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/28 17:18:31 by rvinnako          #+#    #+#             */
-/*   Updated: 2017/09/11 16:38:49 by rvinnako         ###   ########.fr       */
+/*   Updated: 2017/09/15 15:42:35 by rvinnako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "minilibx_macos/mlx.h"
 # include "libft/libft.h"
 # include <limits.h>
+# define sign(x) ((x > 0)?1:((x<0)?-1:0))
 
 typedef struct		s_line
 {
@@ -51,6 +52,8 @@ typedef struct		s_point
 	float			z;
 	float			win_x;
 	float			win_y;
+	float			cart_x;
+	float			cart_y;
 }					t_point;
 
 
@@ -63,6 +66,8 @@ t_map				get_map(char **arr);
 
 /*----point.c-----*/
 t_point				new_point(int x, int y, int z);
+t_point				find_right(t_point *point_list, t_point *point, t_map *map);
+t_point				find_down(t_point *point_list, t_point *point, t_map *map);
 t_point				*point_list(t_map *map);
 
 /*----rotate.c----*/
