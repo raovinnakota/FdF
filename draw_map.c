@@ -6,12 +6,13 @@
 /*   By: rvinnako <rvinnako@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/21 13:57:40 by rvinnako          #+#    #+#             */
-/*   Updated: 2017/09/15 16:28:13 by rvinnako         ###   ########.fr       */
+/*   Updated: 2017/09/18 17:35:24 by rvinnako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
+/*
 t_win	get_win(t_map *map, int scale)
 {
 	t_win	ret;
@@ -21,6 +22,7 @@ t_win	get_win(t_map *map, int scale)
 	ret.win_y = ((map->map_y * ret.scale) + (5 * ret.scale));
 	return (ret);
 }
+
 
 int		draw_map(void *mlx_ptr, void *win_ptr, t_win *win, t_map *map)
 {
@@ -36,7 +38,7 @@ int		draw_map(void *mlx_ptr, void *win_ptr, t_win *win, t_map *map)
 	rotate_graph(p_list, 0.050, map, 'z');
 	while (z + 1 < map->map_area)
 	{
-		printf("x:%fy:%f\n", p_list[z].cart_x, p_list[z].cart_y);
+		//printf("x:%fy:%f\n", p_list[z].cart_x, p_list[z].cart_y);
 		p_list[z].win_x = (p_list[z].x * win->scale) + (win->win_x / 2);
 		p_list[z].win_y = (p_list[z].y * win->scale) + (win->win_y / 2);
 		mlx_pixel_put(mlx_ptr, win_ptr, p_list[z].win_x, p_list[z].win_y, 0xFF00FF);
@@ -50,16 +52,18 @@ int		draw_map(void *mlx_ptr, void *win_ptr, t_win *win, t_map *map)
 		draw_line(&p_list[z], &p_list[z + 1], mlx_ptr, win_ptr);
 		draw_line(&p_list[z], &p_list[z + (map->map_x)], mlx_ptr, win_ptr);
 		z++;
-	}*/
+	}
 	//draw_line(&p_list[0], &p_list[10], mlx_ptr, win_ptr);
-	//right = find_right(p_list, &p_list[8], map);
-	//down = find_down(p_list, &p_list[8], map);
-	//mlx_pixel_put(mlx_ptr, win_ptr, down.win_x, down.win_y, 0xFFFFFF);
+	right = find_right(p_list, &p_list[0], map);
+	down = find_down(p_list, &p_list[0], map);
+	mlx_pixel_put(mlx_ptr, win_ptr, down.win_x, down.win_y, 0xFFFFFF);
+	mlx_pixel_put(mlx_ptr, win_ptr, right.win_x, right.win_y, 0xFFFFFF);
 	//printf("down = x:%f, y:%f\n, win_x:%f, win_y:%f\n", down.cart_x, down.cart_y, down.win_x, down.win_y);
 	//draw_line(&p_list[8], &right, mlx_ptr, win_ptr);
 	//draw_line(&p_list[8], &down, mlx_ptr, win_ptr);
 	return(0);
 }
+*/
 
 int		main(int ac, char **av)
 {

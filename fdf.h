@@ -6,7 +6,7 @@
 /*   By: rvinnako <rvinnako@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/28 17:18:31 by rvinnako          #+#    #+#             */
-/*   Updated: 2017/09/15 15:42:35 by rvinnako         ###   ########.fr       */
+/*   Updated: 2017/09/18 17:35:26 by rvinnako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,15 @@
 
 typedef struct		s_line
 {
-	int				x_start;
-	int				y_start;
-	int				x_end;
-	int				y_end;
+	float			delta;
+	float			tmpx;
+	float			tmpy;
+	float			range;
+	float			x0
+	float			y0;
+	float			x1;
+	float			y1;
+
 }					t_line;
 
 typedef struct		s_map
@@ -38,12 +43,20 @@ typedef struct		s_map
 	int				hmax;
 }					t_map;
 
-typedef struct		s_win
+typedef struct		s_env
 {
 	int				win_x;
 	int				win_y;
 	float			scale;
-}					t_win;
+	float			run;
+	float			rise;
+	float			offset;
+	float			adjust;
+	float			threshold;
+	int				color;
+	void			*mlx_ptr;
+	void			*win_ptr;
+}					t_env;
 
 typedef struct		s_point
 {
@@ -63,6 +76,9 @@ char				**fill_map(int fd);
 
 /*----set_map.c---*/
 t_map				get_map(char **arr);
+
+/*----set_env.c---*/
+t_env				*init_env(void);
 
 /*----point.c-----*/
 t_point				new_point(int x, int y, int z);
