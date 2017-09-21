@@ -6,7 +6,7 @@
 /*   By: rvinnako <rvinnako@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/28 17:18:31 by rvinnako          #+#    #+#             */
-/*   Updated: 2017/09/18 17:35:26 by rvinnako         ###   ########.fr       */
+/*   Updated: 2017/09/20 14:46:33 by rvinnako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ typedef struct		s_line
 	float			tmpx;
 	float			tmpy;
 	float			range;
-	float			x0
+	float			x0;
 	float			y0;
 	float			x1;
 	float			y1;
@@ -78,7 +78,7 @@ char				**fill_map(int fd);
 t_map				get_map(char **arr);
 
 /*----set_env.c---*/
-t_env				*init_env(void);
+t_env				*init_env(t_map *map);
 
 /*----point.c-----*/
 t_point				new_point(int x, int y, int z);
