@@ -6,7 +6,7 @@
 /*   By: rvinnako <rvinnako@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/28 17:18:31 by rvinnako          #+#    #+#             */
-/*   Updated: 2017/09/20 14:46:33 by rvinnako         ###   ########.fr       */
+/*   Updated: 2017/09/22 17:16:33 by rvinnako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ typedef struct		s_env
 	int				color;
 	void			*mlx_ptr;
 	void			*win_ptr;
+	t_map			*map;
 }					t_env;
 
 typedef struct		s_point

@@ -6,7 +6,7 @@
 /*   By: rvinnako <rvinnako@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/12 18:05:40 by rvinnako          #+#    #+#             */
-/*   Updated: 2017/09/20 14:47:15 by rvinnako         ###   ########.fr       */
+/*   Updated: 2017/09/22 17:23:44 by rvinnako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,6 @@ t_env	*init_env(t_map *map)
 	env->color = 0xFFFFFF;
 	env->mlx_ptr = NULL;
 	env->win_ptr = NULL;
+	env->map = NULL;
 	return (env);
 }
