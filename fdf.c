@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_map.c                                         :+:      :+:    :+:   */
+/*   fdf.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rvinnako <rvinnako@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/21 13:57:40 by rvinnako          #+#    #+#             */
-/*   Updated: 2017/09/20 16:50:29 by rvinnako         ###   ########.fr       */
+/*   Updated: 2017/09/26 16:34:25 by rvinnako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,6 @@ int		main(int ac, char **av)
 	int		fd;
 	t_map	map;
 	t_env 	*env;
-	//void	*mlx;
-	//void	*win;
 	char	**arr;
 
 	if (ac < 2)
@@ -66,11 +64,10 @@ int		main(int ac, char **av)
 		printf("Include the test map\n");
 		return (0);
 	}
+	env = init_env()
 	fd = open(av[1], O_RDONLY);
 	arr = fill_map(fd);
-	map = get_map(arr);
-	env = init_env(&map);
-	//env->win = get_win(&map, ft_atoi(av[2]));
+	env->map = get_map(arr);
 	env->mlx_ptr = mlx_init();
 	env->win_ptr = mlx_new_window(env->mlx_ptr, env->win_x, env->win_y, av[1]);
 	draw_map(env, &map);

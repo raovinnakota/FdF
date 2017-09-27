@@ -6,7 +6,7 @@
 /*   By: rvinnako <rvinnako@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/18 13:07:27 by rvinnako          #+#    #+#             */
-/*   Updated: 2017/09/20 16:48:15 by rvinnako         ###   ########.fr       */
+/*   Updated: 2017/09/26 17:59:11 by rvinnako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	draw_gradual(t_line *line, t_env *env)
 	}
 }
 
-void	draw_sharp(t_env *env)
+void	draw_sharp(t_line *line, t_env *env)
 {
 	line->delta = fabsf(env->run / env->rise);
 	line->tmpx = line->x;
@@ -81,16 +81,21 @@ void	draw_sharp(t_env *env)
 	}
 }
 
-void	draw_down(t_env *env)
+void	draw_down(t_env *env, t_line *line, t_point *p_list, t_point *p1)
 {
-	int j;
+	init_draw_down(env, line, p_list, p1);
+	if (env->run == 0 && p1->cart_y + 1 < env->map->map_y)
+		draw_straight(line, env);
+	else
+		draw_else(env, line);
+	/*int j;
 	int k;
 
 	j = 0;
-	while (j < env->len)
+	while (j < env->map->map_x)
 	{
 		k = 0;
-		while (k < env->width)
+		while (k < env->map->map_y)
 		{
 			init_draw_down(env, j, k);
 			if (env->run == 0 && j + 1 < env->len)
@@ -100,11 +105,17 @@ void	draw_down(t_env *env)
 			k++;
 		}
 		j++;
-	}
+	}*/
 }
 
-void	draw_right(t_env *env)
+void	draw_right(t_env *env, t_line *line, t_point *p_list, t_point *p1)
 {
+	init_draw_down(env, line, p_list, p1);
+	if (env->run == 0 && p1->cart_x + 1 < env->map->map_x)
+		draw_straight(line, env);
+	else
+		draw_else(env, line);
+	/*
 	int j;
 	int k;
 
@@ -123,4 +134,5 @@ void	draw_right(t_env *env)
 		}
 		j++;
 	}
+	*/
 }

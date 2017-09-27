@@ -6,7 +6,7 @@
 /*   By: rvinnako <rvinnako@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/26 18:48:44 by rvinnako          #+#    #+#             */
-/*   Updated: 2017/09/15 15:25:30 by rvinnako         ###   ########.fr       */
+/*   Updated: 2017/09/26 17:16:29 by rvinnako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,23 @@ t_point	find_down(t_point *point_list, t_point *point, t_map *map)
 	}
 	return (ret);
 }
+
+/*
+t_point find_point(t_env *env, t_point *p_list, int j, int k)
+{
+	int 		i;
+	t_point		ret;
+
+	i = 0;
+	while(i < env->map->map_area)
+	{
+		if (((int)p_list[i].cart_x == j) && ((int)p_list[i].cart_y == k))
+			ret = p_list[i];
+		i++;
+	}
+	return (ret);
+}
+*/
 
 t_point	*point_list(t_map *map)
 {

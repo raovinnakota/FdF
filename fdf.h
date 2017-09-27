@@ -6,7 +6,7 @@
 /*   By: rvinnako <rvinnako@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/28 17:18:31 by rvinnako          #+#    #+#             */
-/*   Updated: 2017/09/22 17:16:33 by rvinnako         ###   ########.fr       */
+/*   Updated: 2017/09/26 17:19:07 by rvinnako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,7 @@ t_env				*init_env(t_map *map);
 t_point				new_point(int x, int y, int z);
 t_point				find_right(t_point *point_list, t_point *point, t_map *map);
 t_point				find_down(t_point *point_list, t_point *point, t_map *map);
+//t_point				find_point(t_env *env, t_point *p_list, int j, int k);
 t_point				*point_list(t_map *map);
 
 /*----rotate.c----*/
