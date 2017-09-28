@@ -17,47 +17,47 @@ void	draw_all(t_env *env, t_line *line, t_point *p_list)
 	int		z;
 
 	z = 0;
-	env->mlx = mlx_init();
-	env->win = mlx_new_window(env->mlx, env->w_wid, env->w_len,
+	env->mlx_ptr = mlx_init();
+	env->win_ptr = mlx_new_window(env->mlx_ptr, env->win_x, env->win_y,
 		"FDF Wireframe");
 	while (z < env->map->map_area)
 	{
-		draw_right(env, line, p_list, p_list[z]);
-		draw_down(env, line, p_list, p_list[z]);
+		draw_right(env, line, p_list, &p_list[z]);
+		draw_down(env, line, p_list, &p_list[z]);
 		z++;
 	}
-	mlx_loop(env->mlx);
+	mlx_loop(env->mlx_ptr);
 }
 
 void	init_draw_right(t_env *env, t_line *line, t_point *p1, t_point *p_list)
 {
 	t_point p2;
 
-	p2 = find_right(p_list, p1, env->map)
+	p2 = find_right(p_list, p1, env->map);
 	if (p1->cart_x < env->map->map_x)
 	{
-		line->x0 = round(p1->win_x);
-		line->y0 = round(p1->win_y);
+		line->x = round(p1->win_x);
+		line->y = round(p1->win_y);
 		line->x1 = round(p2.win_x);
-		line->x2 = round(p2.win_y);
-		env->run = line->x1 - line->x0;
-		env->rise = line->y1 - line->y1;
+		line->y1 = round(p2.win_y);
+		env->run = line->x1 - line->x;
+		env->rise = line->y1 - line->y;
 	}
 }
 
-void	init_draw_down(t_env *env, t_line *line, t_point *p1, t_point *p2)
+void	init_draw_down(t_env *env, t_line *line, t_point *p1, t_point *p_list)
 {
 	t_point p2;
 
-	p2 = find_down(p_list, p1, env->map)
-	if (p1->cart_y < env->map->)
+	p2 = find_down(p_list, p1, env->map);
+	if (p1->cart_y < env->map->map_y)
 	{
-		line->x0 = round(p1->win_x);
-		line->y0 = round(p1->win_y);
-		line->x1 = round(p2->win_x);
-		line->x2 = round(p2->win_y);
-		env->run = line->x1 - line->x0;
-		env->rise = line->y1 - line->y1;
+		line->x = round(p1->win_x);
+		line->y = round(p1->win_y);
+		line->x1 = round(p2.win_x);
+		line->y1 = round(p2.win_y);
+		env->run = line->x1 - line->x;
+		env->rise = line->y1 - line->y;
 	}
 }
 

@@ -24,11 +24,11 @@ typedef struct		s_line
 	float			tmpx;
 	float			tmpy;
 	float			range;
-	float			x0;
-	float			y0;
+	float			x;
+	float			y;
 	float			x1;
 	float			y1;
-
+	float			m;
 }					t_line;
 
 typedef struct		s_map
@@ -79,7 +79,9 @@ char				**fill_map(int fd);
 t_map				get_map(char **arr);
 
 /*----set_env.c---*/
-t_env				*init_env(t_map *map);
+t_env				*init_env(void);
+void				set_scale(t_env *env);
+t_line				init_line(void);
 
 /*----point.c-----*/
 t_point				new_point(int x, int y, int z);
@@ -92,6 +94,16 @@ t_point				*point_list(t_map *map);
 void				rotate_graph(t_point *p_list, float angle, t_map *map, char axis);
 
 /*----draw_line.c----*/
-void				draw_line(t_point *p1, t_point *p2, void *mlx_ptr, void *win_ptr);
+void				draw_all(t_env *env, t_line *line, t_point *p_list);
+void				init_draw_right(t_env *env, t_line *line, t_point *p1, t_point *p_list);
+void				init_draw_down(t_env *env, t_line *line, t_point *p1, t_point *p_list);
+void				draw_else(t_env *env, t_line *line);
+
+/*----draw_slopes.c--*/
+void	draw_straight(t_line *line, t_env *env);
+void	draw_gradual(t_line *line, t_env *env);
+void	draw_sharp(t_line *line, t_env *env);
+void	draw_down(t_env *env, t_line *line, t_point *p_list, t_point *p1);
+void	draw_right(t_env *env, t_line *line, t_point *p_list, t_point *p1);
 
 #endif

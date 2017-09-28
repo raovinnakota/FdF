@@ -40,6 +40,11 @@ void	set_scale(t_env *env)
 	env->scale = scale;
 }
 
+void	set_map(t_env *env, t_map *map)
+{
+	env->map = map;
+}
+
 t_line init_line(void)
 {
 	t_line line;
@@ -48,10 +53,11 @@ t_line init_line(void)
 	line.tmpx = 0;
 	line.tmpy = 0;
 	line.range = 0;
-	line.x0 = 0;
-	line.y0 = 0;
+	line.x = 0;
+	line.y = 0;
 	line.x1 = 0;
 	line.y1 = 0;
+	line.m = 0;
 
 	return (line);
 }

@@ -12,7 +12,7 @@
 
 #include "fdf.h"
 
-void	draw_straight(t_line *line, t_env env)
+void	draw_straight(t_line *line, t_env *env)
 {
 	float	tmp;
 
@@ -32,11 +32,11 @@ void	draw_straight(t_line *line, t_env env)
 
 void	draw_gradual(t_line *line, t_env *env)
 {
-	line->delta = fabsf(line->m)
+	line->delta = fabsf(line->m);
 	line->tmpy = line->y;
 	if (line->x1 < line->x)
 	{
-		line->tmpx = x;
+		line->tmpx = line->x;
 		line->x = line->x1;
 		line->x1 = line->tmpx;
 		line->tmpy = line->y1;
@@ -69,7 +69,7 @@ void	draw_sharp(t_line *line, t_env *env)
 	line->range = (line->y1 - line->y);
 	while (line->y < line->y1)
 	{
-		mlx_pixel_put(env->mlx, env->win, line->tmpx, line->y,
+		mlx_pixel_put(env->mlx_ptr, env->win_ptr, line->tmpx, line->y,
 			env->color);
 		env->offset += line->delta;
 		if (env->offset >= env->threshold)
