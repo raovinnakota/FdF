@@ -12,7 +12,7 @@
 
 #include "fdf.h"
 
-t_env	*init_env(void)
+t_env	*init_env(t_map *map)
 {
 	t_env	*env;
 
@@ -28,7 +28,7 @@ t_env	*init_env(void)
 	env->color = 0xFFFFFF;
 	env->mlx_ptr = NULL;
 	env->win_ptr = NULL;
-	env->map = NULL;
+	env->map = map;
 	return (env);
 }
 
@@ -40,11 +40,12 @@ void	set_scale(t_env *env)
 	env->scale = scale;
 }
 
+/*
 void	set_map(t_env *env, t_map *map)
 {
 	env->map = map;
 }
-
+*/
 t_line init_line(void)
 {
 	t_line line;

@@ -79,7 +79,7 @@ char				**fill_map(int fd);
 t_map				get_map(char **arr);
 
 /*----set_env.c---*/
-t_env				*init_env(void);
+t_env				*init_env(t_map *map);
 void				set_scale(t_env *env);
 t_line				init_line(void);
 
