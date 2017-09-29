@@ -11,12 +11,13 @@
 /* ************************************************************************** */
 
 #include "fdf.h"
-
+/*
 void	set_cart(t_point *point, int x, int y)
 {
 	point->cart_x = (float)(x);
 	point->cart_y = (float)(y);
 }
+*/
 
 t_point	new_point(int x, int y, int z)
 {
@@ -28,6 +29,7 @@ t_point	new_point(int x, int y, int z)
 	return (ret);
 }
 
+/*
 t_point	find_right(t_point *point_list, t_point *point, t_map *map)
 {
 	int		z;
@@ -41,9 +43,7 @@ t_point	find_right(t_point *point_list, t_point *point, t_map *map)
 	while (z < map->map_area)
 	{
 		if ((point_list[z].cart_x == goal_x) && (point_list[z].cart_y == goal_y))
-		{
 			ret = point_list[z];
-		}
 		z++;
 	}
 	return (ret);
@@ -62,26 +62,8 @@ t_point	find_down(t_point *point_list, t_point *point, t_map *map)
 	while (z < map->map_area)
 	{
 		if ((point_list[z].cart_x == goal_x) && (point_list[z].cart_y == goal_y))
-		{
 			ret = point_list[z];
-		}
 		z++;
-	}
-	return (ret);
-}
-
-/*
-t_point find_point(t_env *env, t_point *p_list, int j, int k)
-{
-	int 		i;
-	t_point		ret;
-
-	i = 0;
-	while(i < env->map->map_area)
-	{
-		if (((int)p_list[i].cart_x == j) && ((int)p_list[i].cart_y == k))
-			ret = p_list[i];
-		i++;
 	}
 	return (ret);
 }
@@ -97,14 +79,16 @@ t_point	*point_list(t_map *map)
 
 	y = 0;
 	z = 0;
-	p_list = (t_point*)malloc(map->map_area * sizeof(float) * 7);
+	p_list = (t_point*)malloc(map->map_area * sizeof(float) * 8);
 	while (y < map->map_y)
 	{
 		x = 1;
 		while (x < map->map_x)
 		{
-			point = new_point((map->mid_x - x), (map->mid_y - y), (map->map[y][x]));
-			set_cart(&point, x, y);
+			point = new_point((x - map->mid_x), (map->mid_y - y), (map->map[y][x]));
+			point.cart_x = (float)x;
+			point.cart_y = (float)y;
+			point.list_num = (float)z;
 			p_list[z] = point;
 			x++;
 			z++;
@@ -114,29 +98,3 @@ t_point	*point_list(t_map *map)
 	}
 	return (p_list);
 }
-
-
-/*
-int		main(int ac, char **av)
-{
-	int		fd;
-	int		z;
-	char	**arr;
-	t_map	map;
-	t_point	*p_list;
-
-	if (ac < 2)
-		return (0);
-	z = 0;
-	fd = open(av[1], O_RDONLY);
-	arr = fill_map(fd);
-	map = get_map(arr);
-	p_list = point_list(&map);
-	while ((z + 1) < map.map_area)
-	{
-		printf("x:%f y:%f z:%f\n", p_list[z].x, p_list[z].y, p_list[z].z);
-		z++;
-	}
-	return (0);
-}
-*/

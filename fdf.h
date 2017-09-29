@@ -68,6 +68,7 @@ typedef struct		s_point
 	float			win_y;
 	float			cart_x;
 	float			cart_y;
+	float			list_num; 
 }					t_point;
 
 
@@ -106,4 +107,6 @@ void	draw_sharp(t_line *line, t_env *env);
 void	draw_down(t_env *env, t_line *line, t_point *p_list, t_point *p1);
 void	draw_right(t_env *env, t_line *line, t_point *p_list, t_point *p1);
 
+/*----fdf.c----------*/
+void	set_points(t_env *env, t_point *p_list);
 #endif

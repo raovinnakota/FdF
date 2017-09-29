@@ -12,7 +12,7 @@
 
 #include "fdf.h"
 
-void	draw_map(t_env *env, t_point *p_list)
+void	set_points(t_env *env, t_point *p_list)
 {
 	//t_point	right;
 	//t_point	down;
@@ -20,15 +20,15 @@ void	draw_map(t_env *env, t_point *p_list)
 
 	z = 0;
 	//p_list = point_list(map);
-	rotate_graph(p_list, 3.142, env->map, 'x');
-	rotate_graph(p_list, 0.050, env->map, 'y');
-	rotate_graph(p_list, 0.050, env->map, 'z');
+	rotate_graph(p_list, -0.785 , env->map, 'z');
+	rotate_graph(p_list, 0.524, env->map, 'y');
+	rotate_graph(p_list, 0.524, env->map, 'x');
 	while (z + 1 < env->map->map_area)
 	{
 		//printf("x:%fy:%f\n", p_list[z].cart_x, p_list[z].cart_y);
 		p_list[z].win_x = (p_list[z].x * env->scale) + (env->win_x / 2);
 		p_list[z].win_y = (p_list[z].y * env->scale) + (env->win_y / 2);
-		mlx_pixel_put(env->mlx_ptr, env->win_ptr, p_list[z].win_x, p_list[z].win_y, 0xFF00FF);
+		//mlx_pixel_put(env->mlx_ptr, env->win_ptr, p_list[z].win_x, p_list[z].win_y, 0xFF00FF);
 		z++;
 	}
 }

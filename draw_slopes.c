@@ -83,7 +83,7 @@ void	draw_sharp(t_line *line, t_env *env)
 
 void	draw_down(t_env *env, t_line *line, t_point *p_list, t_point *p1)
 {
-	init_draw_down(env, line, p_list, p1);
+	init_draw_down(env, line, p1, p_list);
 	if (env->run == 0 && p1->cart_y + 1 < env->map->map_y)
 		draw_straight(line, env);
 	else
@@ -110,7 +110,7 @@ void	draw_down(t_env *env, t_line *line, t_point *p_list, t_point *p1)
 
 void	draw_right(t_env *env, t_line *line, t_point *p_list, t_point *p1)
 {
-	init_draw_down(env, line, p_list, p1);
+	init_draw_right(env, line, p1, p_list);
 	if (env->run == 0 && p1->cart_x + 1 < env->map->map_x)
 		draw_straight(line, env);
 	else
