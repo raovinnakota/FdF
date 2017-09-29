@@ -1,7 +1,4 @@
-Images are centered, but flipped, figure out how to properly assign coordinates
-Fix so works with a static window size
-Number points, add extra attribute, change point list to reflect extra attribute
-Use bressenham line-drawing algorithm to draw lines
-Figure out how to map with hex
+figure out angle for rotation
+fix extra lines
 Color based on height
 Validate input 
