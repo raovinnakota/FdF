@@ -21,7 +21,7 @@ void	draw_all(t_env *env, t_line *line, t_point *p_list)
 	env->win_ptr = mlx_new_window(env->mlx_ptr, env->win_x, env->win_y,
 		"FDF Wireframe");
 	set_points(env, p_list);
-	while (z + 1 < env->map->map_area)
+	while (z + 2 < env->map->map_area)
 	{
 		draw_right(env, line, p_list, &p_list[z]);
 		draw_down(env, line, p_list, &p_list[z]);

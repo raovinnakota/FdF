@@ -11,6 +11,11 @@
 /* ************************************************************************** */
 
 #include "fdf.h"
+/*
+int		my_key_funct(int keycode, void *param)
+{
+	printf("key event %d\n", keycode);
+}*/
 
 void	set_points(t_env *env, t_point *p_list)
 {
@@ -20,9 +25,9 @@ void	set_points(t_env *env, t_point *p_list)
 
 	z = 0;
 	//p_list = point_list(map);
-	rotate_graph(p_list, -0.785 , env->map, 'z');
-	rotate_graph(p_list, 0.524, env->map, 'y');
-	rotate_graph(p_list, 0.524, env->map, 'x');
+	rotate_graph(p_list, 0.7854 , env->map, 'z');
+	rotate_graph(p_list, 0.0524, env->map, 'y');
+	rotate_graph(p_list, 0.6982, env->map, 'x');
 	while (z + 1 < env->map->map_area)
 	{
 		//printf("x:%fy:%f\n", p_list[z].cart_x, p_list[z].cart_y);
@@ -61,5 +66,6 @@ int		main(int ac, char **av)
 	//	"FDF Wireframe");
 	//draw_map(env, p_list);
 	//mlx_loop(env->mlx_ptr);
+	//mlx_key_hook(env->win_ptr, my_key_funct, 0);
 	draw_all(env, &line, p_list);
 }

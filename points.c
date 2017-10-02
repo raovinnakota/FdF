@@ -25,7 +25,7 @@ t_point	new_point(int x, int y, int z)
 
 	ret.x = (float)x;
 	ret.y = (float)y;
-	ret.z = (float)z;
+	ret.z = (float)z / 4;
 	return (ret);
 }
 
@@ -85,7 +85,7 @@ t_point	*point_list(t_map *map)
 		x = 1;
 		while (x < map->map_x)
 		{
-			point = new_point((x - map->mid_x), (map->mid_y - y), (map->map[y][x]));
+			point = new_point((x - map->mid_x), (y - map->mid_y), (map->map[y][x]));
 			point.cart_x = (float)x;
 			point.cart_y = (float)y;
 			point.list_num = (float)z;
