@@ -17,8 +17,8 @@ t_env	*init_env(t_map *map)
 	t_env	*env;
 
 	env = (t_env*)malloc(sizeof(t_env));
-	env->win_x = 600;
-	env->win_y = 600;
+	env->win_x = 1200;
+	env->win_y = 1200;
 	env->scale = 0;
 	env->run = 0;
 	env->rise = 0;
@@ -36,16 +36,10 @@ void	set_scale(t_env *env)
 {
 	int scale;
 
-	scale = 400 / env->map->map_x;
+	scale = 1000 / env->map->map_x;
 	env->scale = scale;
 }
 
-/*
-void	set_map(t_env *env, t_map *map)
-{
-	env->map = map;
-}
-*/
 t_line init_line(void)
 {
 	t_line line;

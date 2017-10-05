@@ -23,6 +23,8 @@ void	draw_all(t_env *env, t_line *line, t_point *p_list)
 	set_points(env, p_list);
 	while (z < env->map->map_area)
 	{
+		/*if ((p_list[z].list_num == 0) && (z != 0))
+			z++;*/
 		draw_right(env, line, p_list, &p_list[z]);
 		draw_down(env, line, p_list, &p_list[z]);
 		z++;

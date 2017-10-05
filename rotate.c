@@ -45,31 +45,3 @@ void	rotate_graph(t_point *p_list, float angle, t_map *map, char axis)
 		z++;
 	}
 }
-
-/*
-int		main(int ac, char **av)
-{
-	int		fd;
-	int		z;
-	char	**arr;
-	t_map	map;
-	t_point	*p_list;
-
-	if (ac < 2)
-		return (0);
-	z = 0;
-	fd = open(av[1], O_RDONLY);
-	arr = fill_map(fd);
-	map = get_map(arr);
-	p_list = point_list(&map);
-	rotate_graph(p_list, 2.094, &map);
-	while ((z + 1) < map.map_area)
-	{
-		printf("x:%f y:%f z:%f\n", p_list[z].x, p_list[z].y, p_list[z].z);
-		//rotate_x(&p_list[z], 2.094);
-		//printf("x:%f y:%f z:%f\n", p_list[z].x, p_list[z].y, p_list[z].z);
-		z++;
-	}
-	return (0);
-}
-*/
