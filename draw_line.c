@@ -21,10 +21,10 @@ void	draw_all(t_env *env, t_line *line, t_point *p_list)
 	env->win_ptr = mlx_new_window(env->mlx_ptr, env->win_x, env->win_y,
 		"FDF Wireframe");
 	set_points(env, p_list);
-	while (z < env->map->map_area)
+	while (z + 1 < env->map->map_area)
 	{
-		/*if ((p_list[z].list_num == 0) && (z != 0))
-			z++;*/
+		if (p_list[z].list_num == 0)
+			z++;
 		draw_right(env, line, p_list, &p_list[z]);
 		draw_down(env, line, p_list, &p_list[z]);
 		z++;
@@ -37,7 +37,7 @@ void	init_draw_right(t_env *env, t_line *line, t_point *p1, t_point *p_list)
 {
 	t_point p2;
 
-	p2 = p_list[(int)p1->list_num + 1];
+	p2 = p_list[(int)p1->list_num + 1 - 1];
 	if (p1->cart_x + 1 < env->map->map_x)
 	{
 		line->x = round(p1->win_x);
@@ -53,7 +53,7 @@ void	init_draw_down(t_env *env, t_line *line, t_point *p1, t_point *p_list)
 {
 	t_point p2;
 
-	p2 = p_list[(int)p1->list_num + env->map->map_x];
+	p2 = p_list[(int)p1->list_num + env->map->map_x - 1];
 	if (p1->cart_y + 1 < env->map->map_y)
 	{
 		line->x = round(p1->win_x);

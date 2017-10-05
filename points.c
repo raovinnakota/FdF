@@ -42,7 +42,7 @@ t_point	*point_list(t_map *map)
 			point = new_point((x - map->mid_x), (y - map->mid_y), (map->map[y][x]));
 			point.cart_x = (float)x;
 			point.cart_y = (float)y;
-			point.list_num = (float)z;
+			point.list_num = (float)(z + 1);
 			p_list[z] = point;
 			x++;
 			z++;		
