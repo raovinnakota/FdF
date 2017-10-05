@@ -78,20 +78,20 @@ t_point	*point_list(t_map *map)
 	t_point	*p_list;
 
 	y = 0;
-	z = 0;
+	z = -1;
 	p_list = (t_point*)malloc(map->map_area * sizeof(float) * 8);
 	while (y < map->map_y)
 	{
 		x = 1;
 		while (x < map->map_x)
 		{
+			z++;
 			point = new_point((x - map->mid_x), (y - map->mid_y), (map->map[y][x]));
 			point.cart_x = (float)x;
 			point.cart_y = (float)y;
 			point.list_num = (float)z;
 			p_list[z] = point;
-			x++;
-			z++;
+			x++;		
 		}
 		z++;
 		y++;

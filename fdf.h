@@ -109,4 +109,5 @@ void	draw_right(t_env *env, t_line *line, t_point *p_list, t_point *p1);
 
 /*----fdf.c----------*/
 void	set_points(t_env *env, t_point *p_list);
+int		my_key_funct(int keycode, void *param);
 #endif

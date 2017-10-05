@@ -11,11 +11,13 @@
 /* ************************************************************************** */
 
 #include "fdf.h"
-/*
+
 int		my_key_funct(int keycode, void *param)
 {
-	printf("key event %d\n", keycode);
-}*/
+	if (keycode == 53)
+		exit(0);
+	return (0);
+}
 
 void	set_points(t_env *env, t_point *p_list)
 {
@@ -24,15 +26,14 @@ void	set_points(t_env *env, t_point *p_list)
 	int		z;
 
 	z = 0;
-	//p_list = point_list(map);
 	rotate_graph(p_list, 0.7854 , env->map, 'z');
 	rotate_graph(p_list, 0.0524, env->map, 'y');
 	rotate_graph(p_list, 0.6982, env->map, 'x');
-	while (z + 1 < env->map->map_area)
+	while (z < env->map->map_area)
 	{
-		//printf("x:%fy:%f\n", p_list[z].cart_x, p_list[z].cart_y);
 		p_list[z].win_x = (p_list[z].x * env->scale) + (env->win_x / 2);
 		p_list[z].win_y = (p_list[z].y * env->scale) + (env->win_y / 2);
+		printf("index:%f x:%f y:%f z:%f\n", p_list[z].list_num, p_list[z].win_x, p_list[z].win_y, p_list[z].z);
 		//mlx_pixel_put(env->mlx_ptr, env->win_ptr, p_list[z].win_x, p_list[z].win_y, 0xFF00FF);
 		z++;
 	}
@@ -66,6 +67,5 @@ int		main(int ac, char **av)
 	//	"FDF Wireframe");
 	//draw_map(env, p_list);
 	//mlx_loop(env->mlx_ptr);
-	//mlx_key_hook(env->win_ptr, my_key_funct, 0);
 	draw_all(env, &line, p_list);
 }
