@@ -1,11 +1,12 @@
 NAME = fdf
 
+INCLUDE = fdf.h
+LIBFT = libft/
+LIBMLX := minilibx_macos/
+
 CFLAGS = -Wall -Werror -Wextra
 CFLAGS += -I includes -I libft/includes
 LDFLAGS += -L libft/ -lft -L minilibx_macos/ -lmlx -framework OpenGL -framework AppKit
-
-LIBFT := libft/libft.a 
-LIBMLX := minilibx_macos/libmlx.a
 
 FDFDR = fdf.c \
         parse.c \
@@ -24,7 +25,8 @@ $(LIBFT):
 $(LIBMLX):
         @make -C minilibx_macos
 
-$(OBJ): %.o: %.c 
+$(OBJ): 
+        %.o:%.c 
         @$(CC) -c $(CFLAGS) $< -o $@
         @echo "Compiled Executable"
 
