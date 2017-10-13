@@ -86,9 +86,6 @@ t_line				init_line(void);
 
 /*----point.c-----*/
 t_point				new_point(int x, int y, int z);
-t_point				find_right(t_point *point_list, t_point *point, t_map *map);
-t_point				find_down(t_point *point_list, t_point *point, t_map *map);
-//t_point				find_point(t_env *env, t_point *p_list, int j, int k);
 t_point				*point_list(t_map *map);
 
 /*----rotate.c----*/
@@ -101,13 +98,13 @@ void				init_draw_down(t_env *env, t_line *line, t_point *p1, t_point *p_list);
 void				draw_else(t_env *env, t_line *line);
 
 /*----draw_slopes.c--*/
-void	draw_straight(t_line *line, t_env *env);
-void	draw_gradual(t_line *line, t_env *env);
-void	draw_sharp(t_line *line, t_env *env);
-void	draw_down(t_env *env, t_line *line, t_point *p_list, t_point *p1);
-void	draw_right(t_env *env, t_line *line, t_point *p_list, t_point *p1);
+void				draw_straight(t_line *line, t_env *env);
+void				draw_gradual(t_line *line, t_env *env);
+void				draw_sharp(t_line *line, t_env *env);
+void				draw_down(t_env *env, t_line *line, t_point *p_list, t_point *p1);
+void				draw_right(t_env *env, t_line *line, t_point *p_list, t_point *p1);
 
 /*----fdf.c----------*/
-void	set_points(t_env *env, t_point *p_list);
-int		my_key_funct(int keycode, void *param);
+void				set_points(t_env *env, t_point *p_list);
+int					my_key_funct(int keycode, void *param);
 #endif
